@@ -12,5 +12,5 @@ using ull = unsigned long long;
 int main() {
 
   
-  return 0;
+	return 0;
 }
