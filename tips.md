@@ -179,8 +179,15 @@ int i = atoi(s);
 |double|8|2.27507e-308~1.79769e+308|O(10^-308~10^308)|
 |long double|16|3.3621e-4932~1.18973e+4932|O(10^-4932~10^4932)|
 
+
+
+
+
 # bitset
 "bitset" library represents a fixed size sequence of N bits.
+
+
+
 
 ## Bit Operator
 |operator|description|
@@ -191,6 +198,9 @@ int i = atoi(s);
 |~|NOT|
 |<<|Left Shift|
 |>>|Right Shift|
+
+
+
 
 ## count
 cout method returns the number of bits set to 1.
@@ -203,6 +213,9 @@ bitset<8> x;
 int cnt = x.count();
 ```
 
+
+
+
 ## standard output of integer as bit
 ```cpp
 #include<iostream>
@@ -212,6 +225,10 @@ using namespace std;
 int x;
 cout << static_cast<bitset<8>>(x) << endl;
 ```
+
+
+
+
 
 # limits
 ## numeric_limits
@@ -225,62 +242,123 @@ int maxint = numeric_limits<int>::max();
 int minint = numeric_limits<int>::min();
 ```
 
+
+
+
+
 # Frequently Used Techniques
 ## Cumulative Sum
 Cumulative sum is a method that count up how many objects satisfy a specific condition within a specific range.
 
+
+
 ### Example
 #### 1D
 - [AtCoder Beginner Contest 001 / D - 感雨時刻の整理](https://beta.atcoder.jp/contests/abc001/tasks/abc001_4)
+
 
 #### 2D
 - [AtCoder Beginner Contest 086 / D - Checker](https://beta.atcoder.jp/contests/abc086/tasks/arc089_b)
 - [AtCoder Beginner Contest 018 / C - 菱形カウント](https://beta.atcoder.jp/contests/abc018/tasks/abc018_3)
 - [AtCoder Beginner Contest 106 / D - AtCoder Express 2](https://beta.atcoder.jp/contests/abc106/tasks/abc106_d)
 
+
+
+
 ## Modulo Operation
 Modulo operation finds the remainder after division of one number by another.
+
+
 
 ### Example
 - [AtCoder Beginner Contest 105 / D - Candy Distribution](https://beta.atcoder.jp/contests/abc105/tasks/abc105_d)
 
+
+
+
 ## Dynamic Programming (DP)
 Dynamic Programming is a method to simplify a complicated problem by breaking it down into simpler sub-problems in a recursive manner.
+
+
 
 ### Example
 - [AtCoder Beginner Contest 104 / D - We Love ABC](https://beta.atcoder.jp/contests/abc104/tasks/abc104_d)
 - [AtCoder Beginner Contest 082 / D - FT Robot](https://beta.atcoder.jp/contests/abc082/tasks/arc087_b)
 - [AtCoder Beginner Contest 011 / C - 123引き算](https://beta.atcoder.jp/contests/abc011/tasks/abc011_3)
 
+
+
+
 ## Sieve of Eratosthenes
 Sieve of Eratosthenes is a simple, ancient algorithm for finding all prime numbers up to any given limit.
 
+
+
 ### Example
 - [AtCoder Beginner Contest 084 / D - 2017-like Number](https://beta.atcoder.jp/contests/abc084/tasks/abc084_d)
+
+
+
 
 ## Bit Operation
 ### Example
 - [AtCoder Beginner Contest 080 / C - Shopping Street](https://beta.atcoder.jp/contests/abc080/tasks/abc080_c)
 
+
+
+
 ## Binary Search
 Binary Search is a search algorithm that finds the position of a target value within a sorted array.
+
+
 
 ### Example
 - [AtCoder Beginner Contest 020 / C - 壁抜け](https://beta.atcoder.jp/contests/abc020/tasks/abc020_c)
 
+
+
+
+## Exhaustive Search by Bit Operation
+This is used to enumerate all the combinations of a set.
+```cpp
+for (int i = 0; i < (1 << n); ++i) {
+	for (int j = 0; j < n; ++j) {
+		std::cout << ((i >> j) & 1);
+	}
+	std::cout << std::endl;
+}
+```
+
+
+### Example
+- [AtCoder Beginner Contest 173 / C - H and V](https://atcoder.jp/contests/abc173/tasks/abc173_c)
+
+
+
+
 ## Breadth-First Search (BFS)
 Breadth-First Search (BFS) is an algorithm for traversing or searching tree ot graph data structures.
+
+
 
 ### Example
 - [AtCoder Beginner Contest 021 / C - 正直者の高橋くん](https://beta.atcoder.jp/contests/abc021/tasks/abc021_c)
 - [AtCoder Beginner Contest 020 / C - 壁抜け](https://beta.atcoder.jp/contests/abc020/tasks/abc020_c)
 
+
+
+
 ## Floyd-Warshall algorithm
 Floyd-Warshall algorithm is an algorithm for finding shortest paths in a weighted graph. A single execution of the algorithm will find the lengths of shortest paths between all pairs of vertices. Computational complexity is O(N^3).
+
+
 
 ### Examples
 - [AtCoder Beginner Contest 079 / D - Wall](https://beta.atcoder.jp/contests/abc079/tasks/abc079_d)
 - [AtCoder Beginner Contest 022 / C - Blue Bird](https://beta.atcoder.jp/contests/abc022/tasks/abc022_c)
+
+
+
 
 ## GCD & LCM
 Greatest Common Divisor (GCD) is the largest positive integer that divides each of integers.
@@ -306,8 +384,10 @@ T lcm(T a, T b) {
 }
 ```
 
-## Radix Conversion
 
+
+
+## Radix Conversion
 ```cpp
 #include<string>
 
