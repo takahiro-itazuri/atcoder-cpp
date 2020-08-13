@@ -337,13 +337,26 @@ for (int i = 0; i < (1 << n); ++i) {
 
 
 ## Breadth-First Search (BFS)
-Breadth-First Search (BFS) is an algorithm for traversing or searching tree ot graph data structures.
+Breadth-First Search (BFS) is an algorithm for traversing or searching tree or graph data structures.
+It starts at the root node and explores all of the neighbor nodes at the present depth prior to moving on to the nodes at the next depth level.
 
 
 
 ### Example
 - [AtCoder Beginner Contest 021 / C - 正直者の高橋くん](https://beta.atcoder.jp/contests/abc021/tasks/abc021_c)
 - [AtCoder Beginner Contest 020 / C - 壁抜け](https://beta.atcoder.jp/contests/abc020/tasks/abc020_c)
+
+
+
+
+## Depth-First Search (DFS)
+Depth-First Search (DFS) is an algorithm for traversing or searching tree or graph data structures.
+The algorithm starts at the root node and explores as far as possible along each branch before backtracking.
+
+
+
+### Example
+- [AtCoder Beginner Contest 165 / C - Many Requirements](https://atcoder.jp/contests/abc165/tasks/abc165_c)
 
 
 
