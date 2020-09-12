@@ -15,6 +15,9 @@ int main() {
 }
 ```
 
+
+
+
 ## scanf & printf
 "scanf" and "printf" are input/output functions used in C, and they are also available in C++.
 
@@ -22,8 +25,14 @@ int main() {
 
 Note: It is known that "scanf" function is insecure when you deal with array of char, because it could cause buffer overflow. In AtCoder, maximum length of input usually is given. So you don't mind this insecurity.
 
+
+
+
 ## getline
 "getline" is input function in "iostream" library of C++. "getline" can read one line.
+
+
+
 
 ## Things to keep in mind
 ### combination of cin and getline
@@ -40,6 +49,8 @@ cin.ignore();
 string s;
 getline(cin, s);
 ```
+
+
 
 ### input into vector
 When you input something into "vector", you need to specify the size of "vector" before input or use "push_back" method via buffer.
@@ -64,6 +75,8 @@ for (int i = 0; i < N; ++i) {
 }
 ```
 
+
+
 ### input string into array of char
 When you input a string (N characters) into an array of "char", you need to prepare the array of "char" with N + 1 elements. This is because the array of "char" has a termination character ('\0').
 
@@ -78,8 +91,15 @@ char S[N+1];
 scanf("%s", S);
 ```
 
+
+
+
+
 # cmath
 "cmath" library has a set of functions to computer common mathematical operations.
+
+
+
 
 ## pow
 You should note that "pow" function is available only to floating point number. If you use "pow" function for interger number, the following code is useful.
@@ -89,6 +109,10 @@ You should note that "pow" function is available only to floating point number. 
 
 result = (int)(pow(base, 2) + 0.5);
 ```
+
+
+
+
 
 # algorithm
 ## sort
@@ -106,6 +130,9 @@ sort(vec.begin(), vec.end());
 sort(vec.begin(), vec.end(), greater<int>());
 ```
 
+
+
+
 ## max & min
 ```cpp
 #include<vector>
@@ -120,6 +147,9 @@ vector<int>::iterator iter = max_element(vec.begin(), vec.end());
 // convert interator into index
 int idx = distance(vec.begin(), idx);
 ```
+
+
+
 
 ## permutation
 ```cpp
@@ -136,6 +166,10 @@ do {
 } while (next_permutation(vec.begin(), vec.end()));
 ```
 
+
+
+
+
 # string
 ## generate substring
 ```cpp
@@ -146,6 +180,9 @@ string s;
 string subs = s.substr(pos, len);
 ```
 
+
+
+
 ## convert string to int
 ```cpp
 #include<string>
@@ -155,6 +192,9 @@ string s;
 int i = stoi(s);
 ```
 
+
+
+
 ## convert array of char to int
 ```cpp
 #include<cstlib>
@@ -162,6 +202,10 @@ int i = stoi(s);
 char s[];
 int i = atoi(s);
 ```
+
+
+
+
 
 # Data Type Ranges
 |type|byte|range|order|
@@ -332,6 +376,49 @@ for (int i = 0; i < (1 << n); ++i) {
 
 ### Example
 - [AtCoder Beginner Contest 173 / C - H and V](https://atcoder.jp/contests/abc173/tasks/abc173_c)
+
+
+
+
+## Union-Find Tree
+```cpp
+#include <vector>
+using namespace std;
+
+struct UnionFind {
+	vector<int> d;
+	
+	UnionFind(int n): d(n, -1) {}
+
+	int root(int x) {
+		if (d[x] < 0) return x;
+		return d[x] = root(d[x]);
+	}
+
+	bool unite(int x, int y) {
+		x = root(x);
+		y = root(y);
+		if (x == y) return false;
+		if (d[x] > d[y]) swap(x, y);
+		d[x] += d[y];
+		d[y] = x;
+		return true;
+	}
+
+	bool same(int x, int y) {
+		return root(x) == root(y);
+	}
+
+	int size(int x) {
+		return -d[root(x)];
+	}
+}
+```
+
+
+
+### Examples
+- [AtCoder Beginner Contest 177 / D - Friends](https://atcoder.jp/contests/abc177/tasks/abc177_d)
 
 
 
