@@ -1,15 +1,9 @@
-/*
-  AtCoder Beginner Contest 001
-  A - 積雪深差
-*/
-
-#include<iostream>
+#include <bits/stdc++.h>
 using namespace std;
 
-int H1, H2;
-
 int main() {
-  scanf("%d%d", &H1, &H2);
-  printf("%d\n", H1 - H2);
-  return 0;
+	int h1, h2;
+	cin >> h1 >> h2;
+	cout << h1 - h2 << endl;
+	return 0;
 }

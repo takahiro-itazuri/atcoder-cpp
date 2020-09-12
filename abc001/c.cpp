@@ -1,28 +1,23 @@
-/*
-  AtCoder Beginner Contest 001
-  C - 風力観測
-*/
-
-#include<iostream>
-#include<string>
-#include<cmath>
+#include <bits/stdc++.h>
 using namespace std;
 
-int Deg, Dis;
-char Dirs[16][4] = {"N", "NNE", "NE", "ENE", "E", "ESE", "SE", "SSE", "S", "SSW", "SW", "WSW", "W", "WNW", "NW", "NNW"};
-int Ws[13] = {0, 15, 93, 201, 327, 477, 645, 831, 1029, 1245, 1467, 1707, 1959};
-
 int main() {
-  scanf("%d%d", &Deg, &Dis);
+	int deg, dis;
+	cin >> deg >> dis;
 
-  int Dir = ((Deg * 10 + 1125) % 36000) / 2250;
+	string dirs[16] = {"N", "NNE", "NE", "ENE", "E", "ESE", "SE", "SSE", "S", "SSW", "SW", "WSW", "W", "WNW", "NW", "NNW"};
+	int ws[12] = {25, 155, 335, 545, 795, 1075, 1385, 1715, 2075, 2445, 2845, 3265};
 
-  int W;
-  for (W = 12; W >= 0; --W) {
-    if (Ws[W] <= Dis) break;
-  }
+	deg = ((deg * 10 + 1125) % 36000) / 2250;
 
-  if (W == 0) printf("C 0\n");
-  else printf("%s %d\n", Dirs[Dir], W);
-  return 0;
+	dis *= 100;
+	int w;
+	for (w = 0; w < 12; ++w) {
+		if (dis < ws[w] * 60) break;
+	}
+
+	if (w == 0) cout << "C 0" << endl;
+	else cout << dirs[deg] << " " << w << endl;
+
+	return 0;
 }
